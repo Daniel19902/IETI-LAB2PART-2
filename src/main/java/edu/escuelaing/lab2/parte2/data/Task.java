@@ -3,33 +3,35 @@ package edu.escuelaing.lab2.parte2.data;
 import edu.escuelaing.lab2.parte2.dto.Status;
 import edu.escuelaing.lab2.parte2.dto.TaskDto;
 
-import java.sql.Date;
-import java.util.concurrent.atomic.AtomicLong;
+
+import java.util.Date;
+
 
 public class Task {
 
-    private long id;
+    private String id;
     private String name;
     private String description;
     private Status status;
     private String assignedTo;
     private Date dueDate;
     private boolean create;
-    AtomicLong atomicLong = new AtomicLong();
 
     public Task(TaskDto taskDto) {
-        this.id = atomicLong.incrementAndGet();
         this.name = taskDto.getName();
         this.description = taskDto.getDescription();
         this.status = taskDto.getStatus();
         this.dueDate = taskDto.getDueDate();
+        this.create = true;
+        this.assignedTo = "";
     }
 
-    public long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -1,6 +1,8 @@
 package edu.escuelaing.lab2.parte2.dto;
 
-import java.sql.Date;
+import net.minidev.json.JSONObject;
+
+import java.util.Date;
 
 public class TaskDto {
 
@@ -9,11 +11,11 @@ public class TaskDto {
     private Status status;
     private Date dueDate;
 
-    public TaskDto(String name, String description, Status status, Date dueDate) {
-        this.name = name;
-        this.description = description;
-        this.status = status;
-        this.dueDate = dueDate;
+    public TaskDto(JSONObject jsonObject) {
+        this.name = jsonObject.getAsString("name");
+        this.description = jsonObject.getAsString("description");
+        this.status = Status.valueOf(jsonObject.getAsString("status"));
+        this.dueDate = new Date();
     }
 
     public String getName() {
