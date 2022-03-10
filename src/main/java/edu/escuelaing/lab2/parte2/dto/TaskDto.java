@@ -11,6 +11,13 @@ public class TaskDto {
     private Status status;
     private Date dueDate;
 
+    public TaskDto(String name, String description, Status status, Date dueDate) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.dueDate = dueDate;
+    }
+
     public TaskDto(JSONObject jsonObject) {
         this.name = jsonObject.getAsString("name");
         this.description = jsonObject.getAsString("description");
